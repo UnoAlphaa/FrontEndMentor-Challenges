@@ -1,0 +1,143 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    position: relative;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 13px;
+    max-width: 1440px;
+    min-height: 100vh;
+    background: linear-gradient(hsl(273, 75%, 66%), hsl(240, 73%, 65%));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.faq__container{
+    width: 750px;
+    height: 410px;
+    background: #fff;
+    border-radius: 20px;
+    display: flex;
+}
+.left_faq{
+    flex: 50%;
+    background: url(./images/bg-pattern-desktop.svg);
+    background-size: 180%;
+    background-repeat: no-repeat;
+    background-position: left -350px top -180px;
+    overflow: hidden;
+}
+.left_faq .images{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.box{
+    position: absolute;
+    left: 220px;
+    top: 270px;
+    overflow: visible;
+    z-index: 1;
+}
+.images .woman{
+    position: absolute;
+    flex: 80%;
+    width: 390px;
+    top: 60px;
+    left: -60px;
+}
+.right_faq{
+    position: relative;
+    flex: 50%;
+    width: 100%;
+    margin-top: 40px;
+}
+.faq__head h3{
+    width: 80%;
+    margin: 10px auto;
+    font-size: 30px;
+    font-weight: 400;
+}
+#accordion{
+    margin: 10px auto;
+    width: 80%;
+}
+#accordion li{
+    list-style: none;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #EDEDED;
+}
+#accordion label + input[type="radio"]{
+    display: none;
+}
+#accordion label{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #828187;
+    font-weight: 400;
+    cursor: pointer;
+    transition: .3s;
+}
+#accordion label:hover{
+    color: #E18E76;
+}
+
+span{
+    transform: rotate(90deg);
+    color: #E18E76;
+    cursor: pointer;
+}
+#accordion .content{
+    padding: 0 10px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s;
+}
+#accordion label + input[type="radio"]:checked + .content{
+    max-height: 300px;
+}
+
+#accordion label + input[type="radio"]:checked [class^="span"]{
+    transform: rotate(0deg);
+}
+
+.woman_mobile{
+    display: none;
+}
+@media screen and (min-width:679px) {
+    .right_faq img{
+        display: none;
+    }
+}
+
+
+@media screen and (max-width:680px),(orientation: portrait){
+    body{
+        flex-direction: column;
+    }
+    .faq__container{
+        display: block;
+        width: 370px;
+        height: 450px;
+    }
+    .box{
+        display: none;
+    }
+    .woman_mobile{
+        display: block;
+        width: 200px;
+        position: absolute;
+        top: 0;
+    }
+    .faq__head h3{
+        text-align: center;
+        margin-top: 70px;
+    }
+}
